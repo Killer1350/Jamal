@@ -1,251 +1,528 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jamal's Suya & Shawarma</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jamal's Suya & Shawarma</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;800&display=swap" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;800&display=swap"
+      rel="stylesheet"
+    />
 
-  <style>
-    :root{
-      --bg:#0b0b0b;
-      --card:#141414;
-      --accent:#c4161c;   /* luxury red */
-      --accent2:#f5c16c;  /* gold */
-      --text:#f5f5f5;
-      --muted:#9ca3af;
-    }
-
-    *{box-sizing:border-box;font-family:'Poppins',sans-serif;}
-    body{margin:0;background:var(--bg);color:var(--text);}
-
-    /* HEADER */
-    header{
-      padding:15px 22px;
-      position:sticky;top:0;z-index:50;
-      background:#000000cc;
-      backdrop-filter:blur(10px);
-      display:flex;justify-content:space-between;align-items:center;
-      border-bottom:1px solid #ffffff10;
-    }
-
-    .brand{display:flex;align-items:center;gap:12px;}
-    .logo-img { width:90px; height:auto; border-radius:50%; }
-    nav a{color:var(--text);margin-left:18px;font-weight:500;text-decoration:none;transition:0.3s;}
-    nav a:hover{color:var(--accent2);}
-
-    /* HAMBURGER MENU */
-    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:51;}
-    .hamburger span{width:28px;height:3px;background:var(--text);border-radius:3px;transition:0.3s;}
-    
-    nav{display:flex;}
-    
-    @media(max-width:768px){
-      .hamburger{display:flex;}
-      
-      header{padding:15px 16px;}
-      .brand{gap:8px;}
-      .logo-img{width:70px;}
-      .brand div b{font-size:14px;}
-      .brand div small{font-size:11px;}
-      
-      nav{
-        position:fixed;left:0;top:70px;width:100%;background:#000000dd;flex-direction:column;
-        gap:0;display:none;padding:16px 0;border-bottom:1px solid #ffffff10;backdrop-filter:blur(10px);
+    <style>
+      :root {
+        --bg: #0b0b0b;
+        --card: #141414;
+        --accent: #c4161c; /* luxury red */
+        --accent2: #f5c16c; /* gold */
+        --text: #f5f5f5;
+        --muted: #9ca3af;
       }
-      
-      nav.active{display:flex;}
-      
-      nav a{
-        margin:0;padding:14px 22px;border-bottom:1px solid #ffffff05;color:var(--text);
-        text-align:left;
+
+      * {
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
       }
-    }
-
-    /* HERO */
-    .hero{
-      padding:100px 25px;
-      display:flex;justify-content:center;align-items:center;
-      background:linear-gradient(#000000aa,#000000dd),url('https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg') center/cover;
-      text-align:center;
-      border-bottom-left-radius:40px;
-      border-bottom-right-radius:40px;
-    }
-    .hero-text h1{font-size:44px;font-weight:800;line-height:1.1;color:var(--accent2);}
-    .hero-text p{font-size:17px;margin-top:12px;color:#ddd;}
-    .btn-main{
-      background:linear-gradient(45deg,var(--accent),var(--accent2));
-      border:none;color:black;padding:12px 28px;border-radius:30px;
-      font-weight:700;margin-top:20px;
-      transition:0.25s;box-shadow:0 10px 30px #00000080;
-    }
-    .btn-main:hover{transform:translateY(-3px);opacity:0.9;}
-
-    @media(max-width:768px){
-      .hero{
-        padding:60px 16px;
-        border-bottom-left-radius:20px;
-        border-bottom-right-radius:20px;
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
       }
-      .hero-text h1{font-size:28px;}
-      .hero-text p{font-size:14px;}
-    }
 
-    /* CATEGORIES (Glovo-style) */
-    .categories{position:sticky;top:70px;z-index:50;background:#0b0b0b;padding:12px 0;}
-    .category-scroll{display:flex;gap:12px;overflow-x:auto;padding:0 16px;scroll-behavior:smooth;}
-    .category-scroll::-webkit-scrollbar{display:none;}
-    .category-item{flex:0 0 auto;padding:10px 16px;border-radius:999px;background:#1a1a1a;color:#fff;font-weight:600;cursor:pointer;white-space:nowrap;transition:all .3s;}
-    .category-item.active,.category-item:hover{background:linear-gradient(135deg,#c81d25,#fcbf49);color:#000;}
+      /* HEADER */
+      header {
+        padding: 15px 22px;
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: #000000cc;
+        backdrop-filter: blur(10px);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #ffffff10;
+      }
 
-    /* SEARCH & SORT */
-    .controls{padding:16px;display:flex;gap:10px;flex-wrap:wrap;}
-    .controls input,.controls select{background:#111;border:1px solid #ffffff10;padding:10px 14px;border-radius:14px;flex:1;color:var(--text);}
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .logo-img {
+        width: 90px;
+        height: auto;
+        border-radius: 50%;
+      }
+      nav a {
+        color: var(--text);
+        margin-left: 18px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+      nav a:hover {
+        color: var(--accent2);
+      }
 
-    /* MENU GRID */
-    .menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;padding:16px;}
-    .menu-card{background:var(--card);border-radius:16px;padding:12px;transition:.3s;}
-    .menu-card:hover{transform:translateY(-5px);}
-    .menu-card img{width:100%;height:160px;border-radius:12px;object-fit:cover;}
-    .price{font-weight:700;margin-top:6px;color:var(--accent2);}
-    .whatsapp-btn{background:#25d366;border:none;color:black;padding:9px 12px;border-radius:12px;width:100%;font-weight:700;margin-top:8px;}
+      /* HAMBURGER MENU */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        z-index: 51;
+      }
+      .hamburger span {
+        width: 28px;
+        height: 3px;
+        background: var(--text);
+        border-radius: 3px;
+        transition: 0.3s;
+      }
 
-    @media(max-width:768px){
-      .controls{padding:12px;gap:8px;}
-      .controls input,.controls select{padding:8px 12px;font-size:14px;}
-      
-      .menu-grid{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;padding:12px;}
-      .menu-card{padding:10px;}
-      .menu-card img{height:120px;}
-      .menu-card h5{font-size:14px;margin-top:8px;}
-    }
+      nav {
+        display: flex;
+      }
 
-    /* CART FLOAT */
-    #cartBox{
-      position:fixed;right:20px;bottom:20px;
-      background:linear-gradient(45deg,var(--accent),var(--accent2));
-      padding:14px 26px;border-radius:50px;color:black;font-weight:800;
-      box-shadow:0 15px 35px #000000aa;cursor:pointer;z-index:60;
-    }
+      @media (max-width: 768px) {
+        .hamburger {
+          display: flex;
+        }
 
-    /* MODAL */
-    .modal-backdrop{position:fixed;inset:0;background:#000c;display:none;justify-content:center;align-items:center;backdrop-filter:blur(6px);z-index:100;}
-    .modal-box{background:#111;padding:22px;border-radius:20px;width:90%;max-width:380px;color:white;border:1px solid #ffffff10;}
-    footer{text-align:center;padding:30px;margin-top:40px;color:var(--muted);}
-  </style>
-</head>
+        header {
+          padding: 15px 16px;
+        }
+        .brand {
+          gap: 8px;
+        }
+        .logo-img {
+          width: 70px;
+        }
+        .brand div b {
+          font-size: 14px;
+        }
+        .brand div small {
+          font-size: 11px;
+        }
 
-<body>
+        nav {
+          position: fixed;
+          left: 0;
+          top: 70px;
+          width: 100%;
+          background: #000000dd;
+          flex-direction: column;
+          gap: 0;
+          display: none;
+          padding: 16px 0;
+          border-bottom: 1px solid #ffffff10;
+          backdrop-filter: blur(10px);
+        }
 
-<header>
-  <div class="brand">
-    <img src="images/jamal-logo.png" alt="Jamal’s Suya & Shawarma" class="logo-img">
-    <div><b>Jamal’s Suya & Shawarma</b><br><small style="color:var(--muted)">Premium Eatery</small></div>
-  </div>
-  <nav id="navMenu">
-    <a href="#menuList" onclick="closeMenu()">Menu</a>
-    <a href="#about" onclick="closeMenu()">About</a>
-    <a href="#contact" onclick="closeMenu()">Contact</a>
-  </nav>
-  <div class="hamburger" onclick="toggleMenu()">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</header>
+        nav.active {
+          display: flex;
+        }
 
-<section class="hero">
-  <div class="hero-text">
-    <h1>Luxury taste.<br>Fast delivery.</h1>
-    <p>Premium Suya, Shawarma & more — crafted for your cravings.</p>
-    <button class="btn-main" onclick="scrollToMenu()">Browse Menu</button>
-  </div>
-</section>
+        nav a {
+          margin: 0;
+          padding: 14px 22px;
+          border-bottom: 1px solid #ffffff05;
+          color: var(--text);
+          text-align: left;
+        }
+      }
 
-<!-- Categories -->
-<section class="categories">
-  <div class="category-scroll" id="catTabs"></div>
-</section>
+      /* HERO */
+      .hero {
+        padding: 100px 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background:
+          linear-gradient(#000000aa, #000000dd),
+          url("https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg")
+            center/cover;
+        text-align: center;
+        border-bottom-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+      }
+      .hero-text h1 {
+        font-size: 44px;
+        font-weight: 800;
+        line-height: 1.1;
+        color: var(--accent2);
+      }
+      .hero-text p {
+        font-size: 17px;
+        margin-top: 12px;
+        color: #ddd;
+      }
+      .btn-main {
+        background: linear-gradient(45deg, var(--accent), var(--accent2));
+        border: none;
+        color: black;
+        padding: 12px 28px;
+        border-radius: 30px;
+        font-weight: 700;
+        margin-top: 20px;
+        transition: 0.25s;
+        box-shadow: 0 10px 30px #00000080;
+      }
+      .btn-main:hover {
+        transform: translateY(-3px);
+        opacity: 0.9;
+      }
 
-<!-- Search & Sort -->
-<section class="controls">
-  <input id="q" placeholder="Search meals…" oninput="renderMenu()">
-  <select id="sort" onchange="renderMenu()">
-    <option value="default">Featured</option>
-    <option value="price-asc">Price: Low → High</option>
-    <option value="price-desc">Price: High → Low</option>
-  </select>
-</section>
+      @media (max-width: 768px) {
+        .hero {
+          padding: 60px 16px;
+          border-bottom-left-radius: 20px;
+          border-bottom-right-radius: 20px;
+        }
+        .hero-text h1 {
+          font-size: 28px;
+        }
+        .hero-text p {
+          font-size: 14px;
+        }
+      }
 
-<!-- Menu Grid -->
-<section id="menuList" class="menu-grid"></section>
+      /* CATEGORIES (Glovo-style) */
+      .categories {
+        position: sticky;
+        top: 70px;
+        z-index: 50;
+        background: #0b0b0b;
+        padding: 12px 0;
+      }
+      .category-scroll {
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+        padding: 0 16px;
+        scroll-behavior: smooth;
+      }
+      .category-scroll::-webkit-scrollbar {
+        display: none;
+      }
+      .category-item {
+        flex: 0 0 auto;
+        padding: 10px 16px;
+        border-radius: 999px;
+        background: #1a1a1a;
+        color: #fff;
+        font-weight: 600;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: all 0.3s;
+      }
+      .category-item.active,
+      .category-item:hover {
+        background: linear-gradient(135deg, #c81d25, #fcbf49);
+        color: #000;
+      }
 
-<!-- Cart -->
-<div id="cartBox" onclick="openCart()">Cart (0)</div>
+      /* SEARCH & SORT */
+      .controls {
+        padding: 16px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .controls input,
+      .controls select {
+        background: #111;
+        border: 1px solid #ffffff10;
+        padding: 10px 14px;
+        border-radius: 14px;
+        flex: 1;
+        color: var(--text);
+      }
 
-<div id="modalBackdrop" class="modal-backdrop">
-  <div class="modal-box" id="cartModalBox"></div>
-</div>
+      /* MENU GRID */
+      .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 16px;
+        padding: 16px;
+      }
+      .menu-card {
+        background: var(--card);
+        border-radius: 16px;
+        padding: 12px;
+        transition: 0.3s;
+      }
+      .menu-card:hover {
+        transform: translateY(-5px);
+      }
+      .menu-card img {
+        width: 100%;
+        height: 160px;
+        border-radius: 12px;
+        object-fit: cover;
+      }
+      .price {
+        font-weight: 700;
+        margin-top: 6px;
+        color: var(--accent2);
+      }
+      .whatsapp-btn {
+        background: #25d366;
+        border: none;
+        color: black;
+        padding: 9px 12px;
+        border-radius: 12px;
+        width: 100%;
+        font-weight: 700;
+        margin-top: 8px;
+      }
 
-<footer id="about">© Jamal’s Suya & Shawarma — Premium Fast Dining</footer>
+      @media (max-width: 768px) {
+        .controls {
+          padding: 12px;
+          gap: 8px;
+        }
+        .controls input,
+        .controls select {
+          padding: 8px 12px;
+          font-size: 14px;
+        }
 
-<script>
-  const WHATSAPP_NUMBER = "2348032296993";
+        .menu-grid {
+          grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+          gap: 12px;
+          padding: 12px;
+        }
+        .menu-card {
+          padding: 10px;
+        }
+        .menu-card img {
+          height: 120px;
+        }
+        .menu-card h5 {
+          font-size: 14px;
+          margin-top: 8px;
+        }
+      }
 
-  const CATEGORIES = ["All","Suya","Shawarma","Burger","Loaded Loaf","Jambalaya","Drinks"];
+      /* CART FLOAT */
+      #cartBox {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        background: linear-gradient(45deg, var(--accent), var(--accent2));
+        padding: 14px 26px;
+        border-radius: 50px;
+        color: black;
+        font-weight: 800;
+        box-shadow: 0 15px 35px #000000aa;
+        cursor: pointer;
+        z-index: 60;
+      }
 
-  const MENU = [
-    {id:1,name:'Beef Suya Platter',price:4500,img:'https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg',cat:'Suya'},
-    {id:2,name:'Chicken Shawarma',price:3000,img:'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg',cat:'Shawarma'},
-    {id:3,name:'Double Beef Burger',price:3500,img:'https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg',cat:'Burger'},
-    {id:4,name:'Loaded Chicken Loaf',price:2800,img:'https://images.pexels.com/photos/704569/pexels-photo-704569.jpeg',cat:'Loaded Loaf'},
-    {id:5,name:'Seafood Jambalaya',price:5000,img:'https://images.pexels.com/photos/410648/pexels-photo-410648.jpeg',cat:'Jambalaya'},
-    {id:6,name:'Chilled Fruit Drink',price:1800,img:'https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg',cat:'Drinks'}
-  ];
+      /* MODAL */
+      .modal-backdrop {
+        position: fixed;
+        inset: 0;
+        background: #000c;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(6px);
+        z-index: 100;
+      }
+      .modal-box {
+        background: #111;
+        padding: 22px;
+        border-radius: 20px;
+        width: 90%;
+        max-width: 380px;
+        color: white;
+        border: 1px solid #ffffff10;
+      }
+      footer {
+        text-align: center;
+        padding: 30px;
+        margin-top: 40px;
+        color: var(--muted);
+      }
+    </style>
+  </head>
 
-  let activeCat = "All";
-  let CART = [];
+  <body>
+    <header>
+      <div class="brand">
+        <img
+          src="images/jamal-logo.png"
+          alt="Jamal’s Suya & Shawarma"
+          class="logo-img"
+        />
+        <div>
+          <b>Jamal’s Suya & Shawarma</b><br /><small style="color: var(--muted)"
+            >Premium Eatery</small
+          >
+        </div>
+      </div>
+      <nav id="navMenu">
+        <a href="#menuList" onclick="closeMenu()">Menu</a>
+        <a href="#about" onclick="closeMenu()">About</a>
+        <a href="#contact" onclick="closeMenu()">Contact</a>
+      </nav>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </header>
 
-  function toggleMenu(){
-    const nav = document.getElementById('navMenu');
-    nav.classList.toggle('active');
-  }
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Luxury taste.<br />Fast delivery.</h1>
+        <p>Premium Suya, Shawarma & more — crafted for your cravings.</p>
+        <button class="btn-main" onclick="scrollToMenu()">Browse Menu</button>
+      </div>
+    </section>
 
-  function closeMenu(){
-    const nav = document.getElementById('navMenu');
-    nav.classList.remove('active');
-  }
+    <!-- Categories -->
+    <section class="categories">
+      <div class="category-scroll" id="catTabs"></div>
+    </section>
 
-  function scrollToMenu(){document.getElementById('menuList').scrollIntoView({behavior:'smooth'});}
+    <!-- Search & Sort -->
+    <section class="controls">
+      <input id="q" placeholder="Search meals…" oninput="renderMenu()" />
+      <select id="sort" onchange="renderMenu()">
+        <option value="default">Featured</option>
+        <option value="price-asc">Price: Low → High</option>
+        <option value="price-desc">Price: High → Low</option>
+      </select>
+    </section>
 
-  function loadCategories(){
-    const node = document.getElementById('catTabs');
-    node.innerHTML = '';
-    CATEGORIES.forEach(cat => {
-      node.innerHTML += `<div class="category-item ${activeCat===cat?'active':''}" onclick="setCat('${cat}')">${cat}</div>`;
-    });
-  }
+    <!-- Menu Grid -->
+    <section id="menuList" class="menu-grid"></section>
 
-  function setCat(c){
-    activeCat = c;
-    loadCategories();
-    renderMenu();
-  }
+    <!-- Cart -->
+    <div id="cartBox" onclick="openCart()">Cart (0)</div>
 
-  function renderMenu(){
-    const q = document.getElementById('q').value.toLowerCase();
-    const sort = document.getElementById('sort').value;
+    <div id="modalBackdrop" class="modal-backdrop">
+      <div class="modal-box" id="cartModalBox"></div>
+    </div>
 
-    let arr = MENU.filter(item => item.name.toLowerCase().includes(q) && (activeCat==='All'||item.cat===activeCat));
+    <footer id="about">© Jamal’s Suya & Shawarma — Premium Fast Dining</footer>
 
-    if(sort==='price-asc') arr.sort((a,b)=>a.price-b.price);
-    if(sort==='price-desc') arr.sort((a,b)=>b.price-a.price);
+    <script>
+      const WHATSAPP_NUMBER = "2348032296993";
 
-    const grid = document.getElementById('menuList'); grid.innerHTML='';
-    arr.forEach(item=>{
-      grid.innerHTML += `
+      const CATEGORIES = [
+        "All",
+        "Suya",
+        "Shawarma",
+        "Burger",
+        "Loaded Loaf",
+        "Jambalaya",
+        "Drinks",
+      ];
+
+      const MENU = [
+        {
+          id: 1,
+          name: "Beef Suya Platter",
+          price: 4500,
+          img: "https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg",
+          cat: "Suya",
+        },
+        {
+          id: 2,
+          name: "Chicken Shawarma",
+          price: 3000,
+          img: "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg",
+          cat: "Shawarma",
+        },
+        {
+          id: 3,
+          name: "Double Beef Burger",
+          price: 3500,
+          img: "https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg",
+          cat: "Burger",
+        },
+        {
+          id: 4,
+          name: "Loaded Chicken Loaf",
+          price: 2800,
+          img: "https://images.pexels.com/photos/704569/pexels-photo-704569.jpeg",
+          cat: "Loaded Loaf",
+        },
+        {
+          id: 5,
+          name: "Seafood Jambalaya",
+          price: 5000,
+          img: "https://images.pexels.com/photos/410648/pexels-photo-410648.jpeg",
+          cat: "Jambalaya",
+        },
+        {
+          id: 6,
+          name: "Chilled Fruit Drink",
+          price: 1800,
+          img: "https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg",
+          cat: "Drinks",
+        },
+      ];
+
+      let activeCat = "All";
+      let CART = [];
+
+      function toggleMenu() {
+        const nav = document.getElementById("navMenu");
+        nav.classList.toggle("active");
+      }
+
+      function closeMenu() {
+        const nav = document.getElementById("navMenu");
+        nav.classList.remove("active");
+      }
+
+      function scrollToMenu() {
+        document
+          .getElementById("menuList")
+          .scrollIntoView({ behavior: "smooth" });
+      }
+
+      function loadCategories() {
+        const node = document.getElementById("catTabs");
+        node.innerHTML = "";
+        CATEGORIES.forEach((cat) => {
+          node.innerHTML += `<div class="category-item ${activeCat === cat ? "active" : ""}" onclick="setCat('${cat}')">${cat}</div>`;
+        });
+      }
+
+      function setCat(c) {
+        activeCat = c;
+        loadCategories();
+        renderMenu();
+      }
+
+      function renderMenu() {
+        const q = document.getElementById("q").value.toLowerCase();
+        const sort = document.getElementById("sort").value;
+
+        let arr = MENU.filter(
+          (item) =>
+            item.name.toLowerCase().includes(q) &&
+            (activeCat === "All" || item.cat === activeCat),
+        );
+
+        if (sort === "price-asc") arr.sort((a, b) => a.price - b.price);
+        if (sort === "price-desc") arr.sort((a, b) => b.price - a.price);
+
+        const grid = document.getElementById("menuList");
+        grid.innerHTML = "";
+        arr.forEach((item) => {
+          grid.innerHTML += `
         <div class="menu-card">
           <img src="${item.img}" alt="${item.name}">
           <h5>${item.name}</h5>
@@ -254,44 +531,53 @@
           <button class="whatsapp-btn" onclick="orderWhatsapp('${item.name}',${item.price})">Order via WhatsApp</button>
         </div>
       `;
-    });
-  }
+        });
+      }
 
-  function addToCart(id){
-    CART.push(MENU.find(i=>i.id===id));
-    document.getElementById('cartBox').innerText = `Cart (${CART.length})`;
-  }
+      function addToCart(id) {
+        CART.push(MENU.find((i) => i.id === id));
+        document.getElementById("cartBox").innerText = `Cart (${CART.length})`;
+      }
 
-  function orderWhatsapp(name, price){
-    const msg = `Hello! I want to order:\n${name}\nPrice: ₦${price}`;
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`);
-  }
+      function orderWhatsapp(name, price) {
+        const msg = `Hello! I want to order:\n${name}\nPrice: ₦${price}`;
+        window.open(
+          `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`,
+        );
+      }
 
-  function openCart(){
-    const modal = document.getElementById('modalBackdrop');
-    const box = document.getElementById('cartModalBox');
-    modal.style.display='flex';
+      function openCart() {
+        const modal = document.getElementById("modalBackdrop");
+        const box = document.getElementById("cartModalBox");
+        modal.style.display = "flex";
 
-    let total=0; let html='<h4>Your Cart</h4>';
-    CART.forEach(i=>{total+=i.price; html+=`<div>${i.name} — ₦${i.price}</div>`;});
-    html+=`<hr><b>Total: ₦${total}</b><br><br>`;
-    html+=`<button class='btn-main' style='width:100%' onclick='checkoutWhatsapp(${total})'>Checkout via WhatsApp</button>`;
-    html+=`<button class='btn-main' style='width:100%;background:#333;color:white;margin-top:8px' onclick='closeModal()'>Close</button>`;
-    box.innerHTML=html;
-  }
+        let total = 0;
+        let html = "<h4>Your Cart</h4>";
+        CART.forEach((i) => {
+          total += i.price;
+          html += `<div>${i.name} — ₦${i.price}</div>`;
+        });
+        html += `<hr><b>Total: ₦${total}</b><br><br>`;
+        html += `<button class='btn-main' style='width:100%' onclick='checkoutWhatsapp(${total})'>Checkout via WhatsApp</button>`;
+        html += `<button class='btn-main' style='width:100%;background:#333;color:white;margin-top:8px' onclick='closeModal()'>Close</button>`;
+        box.innerHTML = html;
+      }
 
-  function checkoutWhatsapp(total){
-    let msg='Hello! I want to place an order:\n\n';
-    CART.forEach(i=>msg+=`• ${i.name} — ₦${i.price}\n`);
-    msg+=`\nTOTAL: ₦${total}`;
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`);
-  }
+      function checkoutWhatsapp(total) {
+        let msg = "Hello! I want to place an order:\n\n";
+        CART.forEach((i) => (msg += `• ${i.name} — ₦${i.price}\n`));
+        msg += `\nTOTAL: ₦${total}`;
+        window.open(
+          `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`,
+        );
+      }
 
-  function closeModal(){document.getElementById('modalBackdrop').style.display='none';}
+      function closeModal() {
+        document.getElementById("modalBackdrop").style.display = "none";
+      }
 
-  loadCategories();
-  renderMenu();
-</script>
-
-</body>
+      loadCategories();
+      renderMenu();
+    </script>
+  </body>
 </html>
