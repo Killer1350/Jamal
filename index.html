@@ -5,9 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Jamal's Suya & Shawarma</title>
 <meta name="description" content="Explore Jamal's Suya & Shawarma menu featuring shawarmas, burgers, suya, jambalaya rice, pasta, and agege sandwiches." />
-<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -127,7 +124,7 @@
     </nav>
     <div class="header-actions">
       <a class="header-link" href="https://www.instagram.com/jamalsshawarma/" target="_blank" rel="noopener">Instagram</a>
-      <a class="btn-primary" href="https://wa.me/2347014267704" target="_blank" rel="noopener">Order on WhatsApp</a>
+      <a class="btn-primary" href="https://wa.me/2349027402094" target="_blank" rel="noopener">Order on WhatsApp</a>
       <button class="hamburger" type="button" onclick="toggleMenu()" aria-label="Open navigation menu">
         <span></span><span></span><span></span>
       </button>
@@ -140,6 +137,7 @@
       <div>
         <span class="kicker">Abuja street food, elevated</span>
         <h2>Suya, shawarma, burgers, rice, pasta, and loaded agege done properly.</h2>
+        <p>Your menu now brings the full Jamal's experience together in one place, from classic shawarmas and burgers to suya sticks, jambalaya rice, pasta, and loaded sandwich loaves.</p>
         <div class="hero-actions">
           <a class="btn-primary" href="#menu">Explore the Menu</a>
           <a class="btn-secondary" href="https://www.instagram.com/jamalsshawarma/" target="_blank" rel="noopener">View Instagram</a>
@@ -149,15 +147,15 @@
         <div class="hero-card">
           <h3>Customer favorites</h3>
           <div class="hero-stat-grid">
-            <div class="stat"><strong>Large Special</strong><span>Loaded shawarma with more chicken, suya, smoked chicken, and sausages.</span></div>
+            <div class="stat"><strong>Legend Platter</strong><span>Best-selling sharing platter loaded with grilled proteins, sides, and bread.</span></div>
+            <div class="stat"><strong>Classic Platter</strong><span>A hearty platter option with potatoes, suya, sauces, and sandwich loaf.</span></div>
             <div class="stat"><strong>Combo Suyazza</strong><span>Signature agege sandwich from the suya and grill menu.</span></div>
-            <div class="stat"><strong>Double Decker</strong><span>Special burger stacked with beef, smoked chicken, cheese, and sausage.</span></div>
             <div class="stat"><strong>Combo Rice</strong><span>Jambalaya rice built for serious appetite.</span></div>
           </div>
         </div>
         <div class="hero-card">
           <h4>Quick order details</h4>
-          <p style="margin:0;color:var(--muted)">Use the menu filters below, add items to cart, then send your order straight to WhatsApp at 07014267704.</p>
+          <p style="margin:0;color:var(--muted)">Use the menu filters below, add items to cart, then send your order straight to WhatsApp at 09027402094.</p>
         </div>
       </div>
     </div>
@@ -181,19 +179,19 @@
   <div class="section-title">
     <div>
       <h3>Full Menu</h3>
-      
+      <p>Built from the menu screenshots you sent, organized for easier browsing.</p>
     </div>
   </div>
   <section id="menuList" class="menu-grid"></section>
   <section class="story-grid" id="story">
     <article class="story-card">
       <h3>About Jamal's</h3>
-      <p>Jamal's Suya & Shawarma brings together rich suya flavor, satisfying shawarmas, loaded sandwiches, burgers, rice, and pasta in one premium food experience.</p>
+      <p>Jamal's Suya & Shawarma brings together rich suya flavor, satisfying shawarmas, loaded sandwiches, burgers, platters, rice, and pasta in one premium food experience.</p>
       <p>Whether you want a quick bite or a heavy meal, the menu is built for bold flavor, generous portions, and fast ordering.</p>
     </article>
     <article class="story-card alt">
       <h3>Why customers love it</h3>
-      <p>From classic shawarmas to signature specials like the Large Special, Suyazza, and Double Decker burger, every category gives customers strong options for different cravings.</p>
+      <p>From best-selling platters to signature specials like Suyazza, jambalaya rice, and Double Decker burger, every category gives customers strong options for different cravings.</p>
       <p>The website now makes it easy to browse by category, search the full menu, and send your order directly to WhatsApp in just a few taps.</p>
     </article>
   </section>
@@ -203,7 +201,7 @@
       <ul class="contact-list">
         <li><strong>Instagram</strong><span>@jamalsshawarma</span></li>
         <li><strong>Call</strong><span>08027402094</span></li>
-        <li><strong>WhatsApp</strong><span>07014267704</span></li>
+        <li><strong>WhatsApp</strong><span>09027402094</span></li>
         <li><strong>Hours</strong><span>12pm - 10pm daily</span></li>
         <li><strong>Location</strong><span>By Jamal's Shawarma, Riverplate Park, Ahmadu Bello Way, Wuse 2, Abuja, Nigeria</span></li>
       </ul>
@@ -224,15 +222,17 @@
   <div class="modal-box" id="cartModalBox"></div>
 </div>
 <script>
-const WHATSAPP_NUMBER = "2347014267704";
+const WHATSAPP_NUMBER = "2349027402094";
 const CATEGORY_IMAGES = {
   "Shawarmas": "images/shawarma.jpg",
   "Burgers": "images/burger.jpg",
   "Agege Shawarma": "images/loaf.jpg",
-  "seasoned potatoes": "images/seasoned potatoes.jpg",
+  "Suya & Grill": "images/classic-platter-pro.jpg",
   "Suya Shawarmas": "images/shawarma.jpg",
   "Rice": "images/chicken jamblaya.jpg",
-  
+  "Pasta": "images/pasta-pro.jpg",
+  "Platters": "images/legend-platter-pro.jpg",
+  "Extras": "images/burger.jpg"
 };
 const MENU = [
   { id: 1, name: "Chicken or Beef Shawarma", category: "Shawarmas", variant: "No sausage", price: 4000, description: "Classic shawarma with your choice of chicken or beef.", tags: ["Classic", "Fast seller"] },
@@ -251,19 +251,30 @@ const MENU = [
   { id: 14, name: "Full Chicken Loaf", category: "Agege Shawarma", price: 5500, description: "Spicy flame-grilled chicken with cabbage, chili sauce, special sauce, and soft loaf.", tags: ["Agege", "Chicken"] },
   { id: 15, name: "Fully Loaded Loaf", category: "Agege Shawarma", price: 6500, description: "Beef suya, grilled chicken, cabbage, chili sauce, suya spice, and special sauce.", tags: ["Agege", "Loaded"] },
   { id: 16, name: "Fully Loaded Special Loaf", category: "Agege Shawarma", price: 7000, description: "Beef suya, chicken, smoked chicken, sausage, cabbage, chili sauce, and special sauce.", tags: ["Agege", "Special"] },
-  { id: 17, name: "Chicken Suya Shawarma", category: "Suya Shawarmas", price: 7000, description: "Suya-style shawarma made with chicken.", tags: ["Suya shawarma", "Chicken"] },
-  { id: 18, name: "Beef Suya Shawarma", category: "Suya Shawarmas", price: 7000, description: "Suya-style shawarma made with beef.", tags: ["Suya shawarma", "Beef"] },
-  { id: 19, name: "Combo Suya Shawarma", category: "Suya Shawarmas", price: 7500, description: "Combo suya shawarma for mixed cravings.", tags: ["Suya shawarma", "Combo"] },
-  { id: 20, name: "Chicken Jambalaya", category: "Rice", price: 4500, description: "Classic chicken jambalaya from the shawarma menu.", tags: ["Rice", "Chicken"] },
-  { id: 21, name: "Chicken & Sausage Jambalaya", category: "Rice", price: 5000, description: "Jambalaya rice mixed with chicken and sausage.", tags: ["Rice", "Sausage"] },
-  { id: 22, name: "Beef Suya Jambalaya Rice", category: "Rice", price: 7500, description: "Specialty rice topped with beef suya.", tags: ["Specialty", "Beef suya"] },
+  { id: 17, name: "Beef Suya Stick", category: "Suya & Grill", price: 1000, description: "Simple beef suya stick from the grill menu.", tags: ["Suya", "Grill"] },
+  { id: 18, name: "Chicken Suya Stick", category: "Suya & Grill", price: 1500, description: "Chicken suya stick for easy snacking.", tags: ["Suya", "Chicken"] },
+  { id: 19, name: "Half Marinated Flame-Grilled Chicken with Pita Bread", category: "Suya & Grill", price: 7950, description: "Half marinated flame-grilled chicken served with pita bread.", tags: ["Grill", "Pita"] },
+  { id: 20, name: "Chicken Suya Shawarma", category: "Suya Shawarmas", price: 7000, description: "Suya-style shawarma made with chicken.", tags: ["Suya shawarma", "Chicken"] },
+  { id: 21, name: "Beef Suya Shawarma", category: "Suya Shawarmas", price: 7000, description: "Suya-style shawarma made with beef.", tags: ["Suya shawarma", "Beef"] },
+  { id: 22, name: "Combo Suya Shawarma", category: "Suya Shawarmas", price: 7500, description: "Combo suya shawarma for mixed cravings.", tags: ["Suya shawarma", "Combo"] },
+  { id: 23, name: "Chicken Jambalaya", category: "Rice", price: 4500, description: "Classic chicken jambalaya from the shawarma menu.", tags: ["Rice", "Chicken"] },
+  { id: 24, name: "Chicken & Sausage Jambalaya", category: "Rice", price: 5000, description: "Jambalaya rice mixed with chicken and sausage.", tags: ["Rice", "Sausage"] },
+  { id: 25, name: "Beef Suya Jambalaya Rice", category: "Rice", price: 7500, description: "Specialty rice topped with beef suya.", tags: ["Specialty", "Beef suya"] },
   { id: 26, name: "Chicken Suya Jambalaya Rice", category: "Rice", price: 7900, description: "Specialty jambalaya rice with chicken suya.", tags: ["Specialty", "Chicken suya"] },
   { id: 27, name: "Combo Jambalaya Rice", category: "Rice", price: 8500, description: "Combo jambalaya rice from Jamal's suya specialties.", tags: ["Specialty", "Combo"] },
   { id: 28, name: "The Beef Suyazza", category: "Agege Shawarma", price: 7500, description: "Signature agege sandwich with beef.", tags: ["Suyazza", "Beef"] },
   { id: 29, name: "The Chicken Suyazza", category: "Agege Shawarma", price: 8000, description: "Signature agege sandwich with chicken.", tags: ["Suyazza", "Chicken"] },
   { id: 30, name: "The Combo Suyazza", category: "Agege Shawarma", price: 8500, description: "Combo agege sandwich from the suya and grill menu.", tags: ["Suyazza", "Combo"] },
-   { id: 31, name: "The Seasoned Potatoes", category: "seasoned potatoes", price: 3000, description: "Seasoned potatoes.", tags: ["seasoned potatoes", "Combo"] },
-
+  { id: 31, name: "Plain Pasta Alfredo", category: "Pasta", price: 7500, description: "Creamy pasta plate finished for a rich, satisfying bite.", tags: ["Pasta", "Best seller"] },
+  { id: 32, name: "Chicken Suya Alfredo", category: "Pasta", price: 7500, description: "Pasta alfredo layered with chicken suya.", tags: ["Pasta", "Chicken suya"] },
+  { id: 39, name: "Classic Platter", category: "Platters", price: 19900, description: "Classic platter with potatoes, suya, sauces, vegetables, and filled bread loaf.", tags: ["Best seller", "Sharing platter"] },
+  { id: 40, name: "Legend Platter", category: "Platters", price: 39900, description: "Legend platter loaded for sharing with grilled proteins, sauces, potatoes, and filled bread loaf.", tags: ["Best seller", "Premium platter"] },
+  { id: 33, name: "Extra Sausage", category: "Extras", price: 400, description: "Add sausage to selected shawarma or loaf options.", tags: ["Extra"] },
+  { id: 34, name: "Extra Beef Suya", category: "Extras", price: 1500, description: "Extra beef suya topping.", tags: ["Extra"] },
+  { id: 35, name: "Extra Chicken", category: "Extras", price: 2000, description: "Extra chicken portion.", tags: ["Extra"] },
+  { id: 36, name: "Extra Smoked Chicken", category: "Extras", price: 1000, description: "Extra smoked chicken portion.", tags: ["Extra"] },
+  { id: 37, name: "Extra Beef Patty", category: "Extras", price: 2000, description: "Burger add-on: extra beef patty.", tags: ["Burger extra"] },
+  { id: 38, name: "Cheese", category: "Extras", price: 1500, description: "Burger add-on: cheese.", tags: ["Burger extra"] }
 ];
 const CATEGORIES = ["All", ...new Set(MENU.map((item) => item.category))];
 const navMenu = document.getElementById("navMenu");
@@ -279,11 +290,18 @@ let activeCategory = "All";
 function formatNaira(amount) {
   return new Intl.NumberFormat("en-NG", { style: "currency", currency: "NGN", maximumFractionDigits: 0 }).format(amount);
 }
+function getDisplayPrice(item) {
+  if (item.priceLabel) return item.priceLabel;
+  return formatNaira(item.price);
+}
 function toggleMenu() { navMenu.classList.toggle("active"); }
 function closeMenu() { navMenu.classList.remove("active"); }
 function getItemImage(item) {
   if (item.name === "Chicken Jambalaya") return "images/chicken jamblaya.jpg";
   if (item.name === "Chicken & Sausage Jambalaya") return "images/chicken and sausage jamblaya.jpg";
+  if (item.category === "Pasta") return "images/pasta-pro.jpg";
+  if (item.name === "Classic Platter") return "images/classic-platter-pro.jpg";
+  if (item.name === "Legend Platter") return "images/legend-platter-pro.jpg";
   if (item.name.includes("Loaf") || item.name.includes("Suyazza")) return "images/loaf.jpg";
   if (item.category === "Burgers" || item.name === "Cheese" || item.name === "Extra Beef Patty") return "images/burger.jpg";
   if (item.name.includes("Shawarma")) return "images/shawarma.jpg";
@@ -314,8 +332,8 @@ function renderMenu() {
     const haystack = `${item.name} ${item.category} ${item.variant || ""} ${item.description} ${item.tags.join(" ")}`.toLowerCase();
     return haystack.includes(query) && (activeCategory === "All" || item.category === activeCategory);
   });
-  if (sort === "price-asc") items.sort((a, b) => a.price - b.price);
-  if (sort === "price-desc") items.sort((a, b) => b.price - a.price);
+  if (sort === "price-asc") items.sort((a, b) => (Number.isFinite(a.price) ? a.price : Number.MAX_SAFE_INTEGER) - (Number.isFinite(b.price) ? b.price : Number.MAX_SAFE_INTEGER));
+  if (sort === "price-desc") items.sort((a, b) => (Number.isFinite(b.price) ? b.price : -1) - (Number.isFinite(a.price) ? a.price : -1));
   menuList.innerHTML = "";
   if (!items.length) {
     menuList.innerHTML = '<div class="empty-state">No menu items matched that search. Try a different keyword or switch categories.</div>';
@@ -332,11 +350,11 @@ function renderMenu() {
             <h4>${item.name}</h4>
             <div class="tags">${variantMarkup}${tagsMarkup}</div>
           </div>
-          <div class="price">${formatNaira(item.price)}</div>
+          <div class="price">${getDisplayPrice(item)}</div>
         </div>
         <p>${item.description}</p>
         <div class="card-actions">
-          <button class="btn-primary" type="button" onclick="addToCart(${item.id})">Add to Cart</button>
+          ${Number.isFinite(item.price) ? `<button class="btn-primary" type="button" onclick="addToCart(${item.id})">Add to Cart</button>` : ""}
           <button class="btn-whatsapp" type="button" onclick="orderSingleItem(${item.id})">Order via WhatsApp</button>
         </div>
       </article>`;
@@ -406,7 +424,9 @@ function dismissOnBackdrop(event) { if (event.target === modalBackdrop) closeMod
 function orderSingleItem(id) {
   const item = MENU.find((menuItem) => menuItem.id === id);
   const label = item.variant ? `${item.name} (${item.variant})` : item.name;
-  const message = `Hello! I want to order ${label} - ${formatNaira(item.price)}`;
+  const message = Number.isFinite(item.price)
+    ? `Hello! I want to order ${label} - ${formatNaira(item.price)}`
+    : `Hello! I want to order ${label}. Please confirm the price for me.`;
   window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, "_blank");
 }
 function checkoutWhatsapp(total) {
