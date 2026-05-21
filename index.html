@@ -105,6 +105,20 @@
   .section-title h3 { font-size: 1.32rem; }
   .qty-controls { flex-wrap: wrap; }
 }
+
+.menu-thumb.loose-fit {
+  object-fit: contain;
+  background: #f5ead7;
+  padding: 10px;
+}
+
+@media (max-width: 760px) {
+  .menu-thumb.loose-fit { padding: 8px; }
+}
+
+@media (max-width: 480px) {
+  .menu-thumb.loose-fit { padding: 6px; }
+}
 </style>
 </head>
 <body>
@@ -235,13 +249,11 @@ const CATEGORY_IMAGES = {
   "Extras": "images/burger.jpg"
 };
 const MENU = [
-   { id: 1, name: "Classic Platter", category: "Platters", price: 19900, description: "Classic platter with potatoes, suya, sauces, vegetables, and filled bread loaf.", tags: ["Best seller", "Sharing platter"] },
-  { id: 2, name: "Legend Platter", category: "Platters", price: 39900, description: "Legend platter loaded for sharing with grilled proteins, sauces, potatoes, and filled bread loaf.", tags: ["Best seller", "Premium platter"] },
-  { id: 3, name: "Chicken or Beef Shawarma", category: "Shawarmas", variant: "No sausage", price: 4000, description: "Classic shawarma with your choice of chicken or beef.", tags: ["Classic", "Fast seller"] },
-  { id: 4, name: "Chicken or Beef Shawarma", category: "Shawarmas", variant: "With sausage", price: 4000, description: "Classic shawarma finished with sausage.", tags: ["Classic", "Sausage"] },
-  { id: 5, name: "Large Chicken or Beef Shawarma", category: "Shawarmas", variant: "No sausage", price: 5500, description: "More of everything for bigger appetite.", tags: ["Large", "More of everything"] },
-  { id: 6, name: "Large Chicken or Beef Shawarma", category: "Shawarmas", variant: "With triple sausage", price: 6000, description: "Extra-loaded large shawarma with triple sausage.", tags: ["Large", "Triple sausage"] },
-  { id: 7, name: "The Special", category: "Shawarmas", price: 5500, description: "Chicken, beef suya, smoked chicken, and double sausages.", tags: ["Signature", "Loaded"] },
+  { id: 1, name: "Chicken or Beef Shawarma", category: "Shawarmas", variant: "No sausage", price: 4000, description: "Classic shawarma with your choice of chicken or beef.", tags: ["Classic", "Fast seller"] },
+  { id: 2, name: "Chicken or Beef Shawarma", category: "Shawarmas", variant: "With sausage", price: 4000, description: "Classic shawarma finished with sausage.", tags: ["Classic", "Sausage"] },
+  { id: 3, name: "Large Chicken or Beef Shawarma", category: "Shawarmas", variant: "No sausage", price: 5500, description: "More of everything for bigger appetite.", tags: ["Large", "More of everything"] },
+  { id: 4, name: "Large Chicken or Beef Shawarma", category: "Shawarmas", variant: "With triple sausage", price: 6000, description: "Extra-loaded large shawarma with triple sausage.", tags: ["Large", "Triple sausage"] },
+  { id: 5, name: "The Special", category: "Shawarmas", price: 5500, description: "Chicken, beef suya, smoked chicken, and double sausages.", tags: ["Signature", "Loaded"] },
   { id: 6, name: "The Large Special", category: "Shawarmas", price: 7000, description: "More chicken, more beef suya, more smoked chicken, more sausages, more everything.", tags: ["Signature", "Large"] },
   { id: 7, name: "Single Burger", category: "Burgers", price: 4000, description: "Simple burger option from the core burger lineup.", tags: ["Burger"] },
   { id: 8, name: "Double Burger", category: "Burgers", price: 5500, description: "Double-layer burger for a heavier bite.", tags: ["Burger", "Double"] },
@@ -255,6 +267,7 @@ const MENU = [
   { id: 16, name: "Fully Loaded Special Loaf", category: "Agege Shawarma", price: 7000, description: "Beef suya, chicken, smoked chicken, sausage, cabbage, chili sauce, and special sauce.", tags: ["Agege", "Special"] },
   { id: 17, name: "Beef Suya Stick", category: "Suya & Grill", price: 1000, description: "Simple beef suya stick from the grill menu.", tags: ["Suya", "Grill"] },
   { id: 18, name: "Chicken Suya Stick", category: "Suya & Grill", price: 1500, description: "Chicken suya stick for easy snacking.", tags: ["Suya", "Chicken"] },
+  { id: 19, name: "Half Marinated Flame-Grilled Chicken with Pita Bread", category: "Suya & Grill", price: 7950, description: "Half marinated flame-grilled chicken served with pita bread.", tags: ["Grill", "Pita"] },
   { id: 20, name: "Chicken Suya Shawarma", category: "Suya Shawarmas", price: 7000, description: "Suya-style shawarma made with chicken.", tags: ["Suya shawarma", "Chicken"] },
   { id: 21, name: "Beef Suya Shawarma", category: "Suya Shawarmas", price: 7000, description: "Suya-style shawarma made with beef.", tags: ["Suya shawarma", "Beef"] },
   { id: 22, name: "Combo Suya Shawarma", category: "Suya Shawarmas", price: 7500, description: "Combo suya shawarma for mixed cravings.", tags: ["Suya shawarma", "Combo"] },
@@ -268,7 +281,8 @@ const MENU = [
   { id: 30, name: "The Combo Suyazza", category: "Agege Shawarma", price: 8500, description: "Combo agege sandwich from the suya and grill menu.", tags: ["Suyazza", "Combo"] },
   { id: 31, name: "Plain Pasta Alfredo", category: "Pasta", price: 7500, description: "Creamy pasta plate finished for a rich, satisfying bite.", tags: ["Pasta", "Best seller"] },
   { id: 32, name: "Chicken Suya Alfredo", category: "Pasta", price: 7500, description: "Pasta alfredo layered with chicken suya.", tags: ["Pasta", "Chicken suya"] },
- 
+  { id: 39, name: "Classic Platter", category: "Platters", price: 19900, description: "Classic platter with potatoes, suya, sauces, vegetables, and filled bread loaf.", tags: ["Best seller", "Sharing platter"] },
+  { id: 40, name: "Legend Platter", category: "Platters", price: 39900, description: "Legend platter loaded for sharing with grilled proteins, sauces, potatoes, and filled bread loaf.", tags: ["Best seller", "Premium platter"] },
   { id: 33, name: "Extra Sausage", category: "Extras", price: 400, description: "Add sausage to selected shawarma or loaf options.", tags: ["Extra"] },
   { id: 34, name: "Extra Beef Suya", category: "Extras", price: 1500, description: "Extra beef suya topping.", tags: ["Extra"] },
   { id: 35, name: "Extra Chicken", category: "Extras", price: 2000, description: "Extra chicken portion.", tags: ["Extra"] },
@@ -293,6 +307,10 @@ function formatNaira(amount) {
 function getDisplayPrice(item) {
   if (item.priceLabel) return item.priceLabel;
   return formatNaira(item.price);
+}
+function getImageClass(item) {
+  if (item.category === "Pasta" || item.category === "Platters") return "menu-thumb loose-fit";
+  return "menu-thumb";
 }
 function toggleMenu() { navMenu.classList.toggle("active"); }
 function closeMenu() { navMenu.classList.remove("active"); }
@@ -344,7 +362,7 @@ function renderMenu() {
     const tagsMarkup = item.tags.map((tag) => `<span class="chip">${tag}</span>`).join("");
     menuList.innerHTML += `
       <article class="menu-card">
-        <img class="menu-thumb" src="${getItemImage(item)}" alt="${item.name}">
+        <img class="${getImageClass(item)}" src="${getItemImage(item)}" alt="${item.name}">
         <div class="menu-meta">
           <div>
             <h4>${item.name}</h4>
