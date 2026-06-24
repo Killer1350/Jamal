@@ -427,7 +427,7 @@ app.post("/api/auth/login", (req, res) => {
 // Paystack Key config
 app.get("/api/paystack-config", (req, res) => {
   // Gracefully handle missing environment standard config key via reliable default test key
-  const key = process.env.PAYSTACK_PUBLIC_KEY || "pk_test_a6e193988f01c25c3fcd107c11f75e01c789d2b4"; // Perfect testing sandbox out of the box
+  const key = process.env.PAYSTACK_PUBLIC_KEY || "pk_test_b99bbf6bb4793392d4134224f7d90840f7e29c71"; // Perfect testing sandbox out of the box
   res.json({ publicKey: key });
 });
 

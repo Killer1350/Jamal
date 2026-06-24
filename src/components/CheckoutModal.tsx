@@ -117,7 +117,7 @@ export default function CheckoutModal({
 
   const initiatePaystack = (amountInNaira: number) => {
     const PaystackPop = (window as any).PaystackPop;
-    const resolvedKey = paystackKey || "pk_test_a6e193988f01c25c3fcd107c11f75e01c789d2b4"; // Fallback to safe Sandbox test key
+    const resolvedKey = paystackKey || "pk_test_b99bbf6bb4793392d4134224f7d90840f7e29c71"; // Fallback to safe Sandbox test key
 
     try {
       const handler = PaystackPop.setup({
