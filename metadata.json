@@ -1,6 +1,0 @@
-{
-  "name": "Jamal's Suya & Shawarma",
-  "description": "Interactive digital menu and WhatsApp ordering application for Jamal's Suya & Shawarma with search, filtering, and simple cart features.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
